@@ -1,0 +1,29 @@
+#!/usr/bin/env perl
+
+use Time::HiRes qw(usleep);
+use Env qw(BLOCK_BUTTON);
+
+use constant DELAY_MS => 50_000; # 50ms for Spotify metadata refresh
+
+# Handle mouse clicks
+if ($BLOCK_BUTTON) {
+    if    ($BLOCK_BUTTON == 1) { system("playerctl previous"); usleep(DELAY_MS); }
+    elsif ($BLOCK_BUTTON == 2) { system("playerctl play-pause"); }
+    elsif ($BLOCK_BUTTON == 3) { system("playerctl next"); usleep(DELAY_MS); }
+    elsif ($BLOCK_BUTTON == 4) { system("playerctl volume 0.12+"); }
+    elsif ($BLOCK_BUTTON == 5) { system("playerctl volume 0.12-"); }
+}
+
+# Get metadata
+my $artist = `playerctl metadata artist 2>/dev/null`;
+chomp $artist;
+
+my $title = `playerctl metadata title 2>/dev/null`;
+chomp $title;
+
+# Only display if info exists
+if ($artist && $title && $artist ne '(null)' && $title ne '(null)') {
+    print "♪ $artist - $title\n";
+} else {
+    print "\n";
+}
