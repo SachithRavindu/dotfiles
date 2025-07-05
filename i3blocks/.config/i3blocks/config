@@ -2,12 +2,6 @@
 separator=true
 separator_block_width=15
 
-[documentation]
-full_text=Documentation
-website=https://vivien.github.io/i3blocks
-command=xdg-open "$website"
-color=#f12711
-
 [spotify]
 command=$HOME/.config/i3blocks/mediaplayer
 interval=2

@@ -209,6 +209,10 @@ for_window [class="code-oss"] border none
 #                 FLOATING CONFIG                 #
 ##################################################
 
-for_window [class="Code" window_type="dialog"] floating enable
+default_border pixel 0
+
+#gaps horizontal 40
+workspace 5 gaps horizontal 50
+workspace 5 gaps vertical 30
 
 

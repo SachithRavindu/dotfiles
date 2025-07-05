@@ -5,20 +5,23 @@ use Env qw(BLOCK_BUTTON);
 
 use constant DELAY_MS => 50_000; # 50ms for Spotify metadata refresh
 
+# Spotify-specific playerctl command
+my $player = "--player=spotify";
+
 # Handle mouse clicks
 if ($BLOCK_BUTTON) {
-    if    ($BLOCK_BUTTON == 1) { system("playerctl previous"); usleep(DELAY_MS); }
-    elsif ($BLOCK_BUTTON == 2) { system("playerctl play-pause"); }
-    elsif ($BLOCK_BUTTON == 3) { system("playerctl next"); usleep(DELAY_MS); }
-    elsif ($BLOCK_BUTTON == 4) { system("playerctl volume 0.12+"); }
-    elsif ($BLOCK_BUTTON == 5) { system("playerctl volume 0.12-"); }
+    if    ($BLOCK_BUTTON == 1) { system("playerctl $player previous"); usleep(DELAY_MS); }
+    elsif ($BLOCK_BUTTON == 2) { system("playerctl $player play-pause"); }
+    elsif ($BLOCK_BUTTON == 3) { system("playerctl $player next"); usleep(DELAY_MS); }
+    elsif ($BLOCK_BUTTON == 4) { system("playerctl $player volume 0.12+"); }
+    elsif ($BLOCK_BUTTON == 5) { system("playerctl $player volume 0.12-"); }
 }
 
-# Get metadata
-my $artist = `playerctl metadata artist 2>/dev/null`;
+# Get metadata only from Spotify
+my $artist = `playerctl $player metadata artist 2>/dev/null`;
 chomp $artist;
 
-my $title = `playerctl metadata title 2>/dev/null`;
+my $title = `playerctl $player metadata title 2>/dev/null`;
 chomp $title;
 
 # Only display if info exists
