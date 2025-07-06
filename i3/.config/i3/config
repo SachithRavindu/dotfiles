@@ -26,6 +26,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager system tray applet
 exec --no-startup-id nm-applet
 
+#dunst otification daemon
+exec --no-startup-id dunst
+
+
 ##################################################
 #                   VOLUME CONTROL                 #
 ##################################################
@@ -210,6 +214,10 @@ for_window [class="code-oss"] border none
 ##################################################
 
 default_border pixel 0
+
+##################################################
+#                   GAP CONFIG                   #
+##################################################
 
 #gaps horizontal 40
 workspace 5 gaps horizontal 50

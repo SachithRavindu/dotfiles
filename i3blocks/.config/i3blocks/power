@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Show label
+echo "Power"
+
+# Handle click events
+case "$BLOCK_BUTTON" in
+    1)  # Left click - shutdown
+        systemctl poweroff
+        ;;
+    2)  # Middle click - reboot
+        systemctl reboot
+        ;;
+    3)  # Right click - sign out (log out)
+        # Replace this command with your session logout command
+        i3-msg exit
+        ;;
+esac

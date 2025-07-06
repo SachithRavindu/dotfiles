@@ -2,6 +2,7 @@
 
 echo "commit:"
 read commit
+cd ~/bigboss
 git add .
 git commit -m "$commit"
 git push
