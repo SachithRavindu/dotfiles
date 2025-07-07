@@ -197,6 +197,17 @@ bar {
     status_command i3blocks
     height 18
     tray_output none
+
+    colors {
+        background #282c34
+        statusline #abb2bf
+        separator  #61afef
+
+        focused_workspace  #61afef #282c34 #ffffff
+        active_workspace   #98c379 #282c34 #000000
+        inactive_workspace #5c6370 #282c34 #ffffff
+        urgent_workspace   #e06c75 #282c34 #ffffff
+    }
 }
 
 ##################################################
