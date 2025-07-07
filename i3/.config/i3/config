@@ -204,8 +204,8 @@ bar {
         separator  #61afef
 
         focused_workspace  #61afef #282c34 #ffffff
-        active_workspace   #98c379 #282c34 #000000
-        inactive_workspace #5c6370 #282c34 #ffffff
+        active_workspace   #98c379 #282c34 #000000 #(multi-monitor setups mostly).
+        inactive_workspace #282c34 #282c34 #ffffff
         urgent_workspace   #e06c75 #282c34 #ffffff
     }
 }

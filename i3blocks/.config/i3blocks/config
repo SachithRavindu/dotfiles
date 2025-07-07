@@ -23,5 +23,5 @@ interval=60
 [power]
 command=~/.config/i3blocks/power
 interval=once
-min_width=power 
+min_width=⏻ 
 
