@@ -7,8 +7,12 @@ separator_block_width=15
 command=$HOME/.config/i3blocks/mediaplayer
 interval=5
 
-[cpu_mem]
-command=~/.config/i3blocks/usage
+[cpu]
+command=~/.config/i3blocks/cpu
+interval=2
+
+[mem]
+command=~/.config/i3blocks/mem
 interval=2
 
 [time]

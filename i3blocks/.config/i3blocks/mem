@@ -1,0 +1,3 @@
+#!/bin/bash
+mem=$(free -h | awk '/^Mem:/ {printf "MEM %s", $3}')
+echo "$mem"
