@@ -11,8 +11,11 @@ font pango:monospace 8
 #                  STARTUP COMMANDS               #
 ##################################################
 
+#polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 # Set wallpaper
-exec --no-startup-id feh --bg-scale ~/.config/wallpapers/1396552.png
+exec_always --no-startup-id feh --bg-scale ~/.config/wallpapers/girls.jpeg
 
 # Start picom with 1-second delay
 exec --no-startup-id sh -c "sleep 1 && picom"
@@ -28,6 +31,9 @@ exec --no-startup-id nm-applet
 
 #dunst otification daemon
 exec --no-startup-id dunst
+
+#clipmenu 
+exec --no-startup-id clipmenud
 
 
 ##################################################
@@ -65,6 +71,9 @@ bindsym $mod+q kill
 # Application launcher (rofi)
 bindsym $mod+r exec rofi -show drun
 
+# clipbord manager
+bindsym $mod+v exec --no-startup-id sh -c 'CM_LAUNCHER=rofi clipmenu'
+
 ##################################################
 #                   FOCUS & MOVE                   #
 ##################################################
@@ -98,8 +107,8 @@ bindsym $mod+Shift+Right move right
 ##################################################
 
 # Split containers horizontally or vertically
-bindsym $mod+h split h
-bindsym $mod+v split v
+#bindsym $mod+h split h
+#bindsym $mod+v split v
 
 # Fullscreen toggle
 bindsym $mod+f fullscreen toggle
@@ -129,6 +138,10 @@ set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
 
 # Switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -136,6 +149,10 @@ bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -143,6 +160,10 @@ bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
 
 ##################################################
 #                 SPECIAL WINDOW RULES            #
@@ -193,23 +214,23 @@ mode "resize" {
 #                      BAR                        #
 ##################################################
 
-bar {
-    status_command i3blocks
-    height 18
-    tray_output none
-    separator_symbol "|"
-
-    colors {
-        background #282c34
-        statusline #abb2bf
-        separator  #61afef
-
-        focused_workspace  #61afef #282c34 #ffffff
-        active_workspace   #98c379 #282c34 #000000 #(multi-monitor setups mostly).
-        inactive_workspace #282c34 #282c34 #ffffff
-        urgent_workspace   #e06c75 #282c34 #ffffff
-    }
-}
+#bar {
+#    status_command i3blocks
+#    height 18
+#    tray_output none
+#    separator_symbol "|"
+#
+#    colors {
+#        background #282c34
+#        statusline #abb2bf
+#        separator  #61afef
+#
+#        focused_workspace  #61afef #282c34 #ffffff
+#        active_workspace   #98c379 #282c34 #000000 #(multi-monitor setups mostly).
+#        inactive_workspace #282c34 #282c34 #ffffff
+#        urgent_workspace   #e06c75 #282c34 #ffffff
+#    }
+#}
 
 ##################################################
 #                 WINDOW BORDER RULES             #
