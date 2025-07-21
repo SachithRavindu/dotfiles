@@ -12,7 +12,7 @@ font pango:monospace 8
 ##################################################
 
 # Set wallpaper
-exec --no-startup-id feh --bg-scale ~/bigboss/wallpapers/1396552.png
+exec --no-startup-id feh --bg-scale ~/.config/wallpapers/1396552.png
 
 # Start picom with 1-second delay
 exec --no-startup-id sh -c "sleep 1 && picom"
@@ -197,6 +197,7 @@ bar {
     status_command i3blocks
     height 18
     tray_output none
+    separator_symbol "|"
 
     colors {
         background #282c34
