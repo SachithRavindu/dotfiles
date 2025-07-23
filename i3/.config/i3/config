@@ -1,6 +1,3 @@
-# i3 Window Manager Configuration
-# See https://i3wm.org/docs/userguide.html for full reference
-
 # Set mod key to Super (Windows) key
 set $mod Mod4
 
@@ -8,20 +5,20 @@ set $mod Mod4
 font pango:monospace 8
 
 ##################################################
-#                  STARTUP COMMANDS               #
+#                  STARTUP COMMANDS              #
 ##################################################
+
+# Start XDG autostart applications via dex
+exec --no-startup-id dex --autostart --environment i3
+
+# Start picom with 1-second delay
+exec --no-startup-id sh -c "sleep 1 && picom"
 
 #polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Set wallpaper
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpapers/girls.jpeg
-
-# Start picom with 1-second delay
-exec --no-startup-id sh -c "sleep 1 && picom"
-
-# Start XDG autostart applications via dex
-exec --no-startup-id dex --autostart --environment i3
 
 # Lock screen before suspend using xss-lock and i3lock
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -37,11 +34,8 @@ exec --no-startup-id clipmenud
 
 
 ##################################################
-#                   VOLUME CONTROL                 #
+#                   VOLUME CONTROL               #
 ##################################################
-
-# Command to refresh i3status (or i3blocks)
-set $refresh_i3status killall -SIGUSR1 i3status
 
 # Volume controls via multimedia keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -50,14 +44,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 ##################################################
-#                  WINDOW MANAGEMENT              #
+#                  HOTKEYS FOR APPS              #
 ##################################################
-
-# Modifier key + mouse drag to move floating windows
-floating_modifier $mod
-
-# Drag tiling windows by left-clicking titlebar or window with modifier
-tiling_drag modifier titlebar
 
 # Start terminal (kitty)
 bindsym $mod+e exec kitty
@@ -77,6 +65,12 @@ bindsym $mod+v exec --no-startup-id sh -c 'CM_LAUNCHER=rofi clipmenu'
 ##################################################
 #                   FOCUS & MOVE                   #
 ##################################################
+
+# Modifier key + mouse drag to move floating windows
+floating_modifier $mod
+
+# Drag tiling windows by left-clicking titlebar or window with modifier
+tiling_drag modifier titlebar
 
 # Change focus between windows
 bindsym $mod+j focus left
@@ -205,10 +199,10 @@ mode "resize" {
     # Exit resize mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
+    bindsym $mod+x mode "default"
 }
 
-#bindsym $mod+r mode "resize"
+bindsym $mod+x mode "resize"
 
 ##################################################
 #                      BAR                        #
@@ -241,10 +235,6 @@ for_window [class="kitty"] border none
 for_window [class="Spotify"] border none
 for_window [class="firefox"] border none
 for_window [class="code-oss"] border none
-
-##################################################
-#                 FLOATING CONFIG                 #
-##################################################
 
 default_border pixel 0
 

@@ -1,0 +1,49 @@
+# System utilities
+SYSTEM_UTILS=(
+  htop
+  btop
+  1password
+  lazygit
+  lazydocker
+  stow
+  neofetch
+  nerdfetch
+  fzf
+  zip
+  unzip
+  wget
+  curl
+)
+
+# Development tools
+DEV_TOOLS=(
+  vim
+  yazi
+  bat
+  zsh
+  neovim
+  starship
+  tmux
+  ghostty
+  git
+  asdf-vm
+)
+
+# System maintenance
+MAINTENANCE=(
+  gnome-disk-utility
+)
+
+# Desktop environment
+DESKTOP=(
+  gnome
+  gnome-tweaks
+  i3
+)
+
+# Media packages
+MEDIA=(
+  vlc
+  flameshot
+  gimp
+)
